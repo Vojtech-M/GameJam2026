@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://7k4e0l5r4knv"]
+
+[ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="1_8k7wh"]
+[ext_resource type="Script" uid="uid://wx60qswr0tbr" path="res://Scenes/character_body_2d.gd" id="2_iufkg"]
+[ext_resource type="Texture2D" uid="uid://c2tluan0ebsur" path="res://stickman.png" id="3_0f5h7"]
+[ext_resource type="Script" uid="uid://d0xla8w2aysl4" path="res://Scenes/rigid_body_2d_2.gd" id="4_0f5h7"]
+[ext_resource type="Texture2D" uid="uid://bbmbae82gr3d" path="res://Scenes/mic.png" id="5_qsjrb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nxt1"]
+size = Vector2(123, 122)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2k52m"]
+bounce = 0.69
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nxt1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_126ht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hxoa"]
+size = Vector2(1925, 20)
+
+[node name="Node2D" type="Node2D" unique_id=143675290]
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1801525512]
+offset_left = 978.0
+offset_top = 489.0
+offset_right = 1478.0
+offset_bottom = 742.0
+texture_normal = ExtResource("1_8k7wh")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=140543545]
+collision_layer = 255
+script = ExtResource("2_iufkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=463761379]
+position = Vector2(459, 152)
+scale = Vector2(6.15625, 7.0625)
+texture = ExtResource("3_0f5h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1717491765]
+position = Vector2(469, 161)
+shape = SubResource("RectangleShape2D_2nxt1")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=1927728206]
+light_mask = 1023
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_2k52m")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 8
+script = ExtResource("4_0f5h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1086871287]
+position = Vector2(494, 477)
+shape = SubResource("CircleShape2D_2nxt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2/CollisionShape2D" unique_id=266480438]
+position = Vector2(-9, -5.999939)
+scale = Vector2(2.3125, 2.03125)
+texture = ExtResource("5_qsjrb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1296798252]
+position = Vector2(500, 490)
+physics_material_override = SubResource("PhysicsMaterial_126ht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1117376203]
+position = Vector2(1365, -99)
+shape = SubResource("RectangleShape2D_8hxoa")
+
+[connection signal="body_shape_entered" from="RigidBody2D2" to="CharacterBody2D" method="_on_rigid_body_2d_2_body_shape_entered"]

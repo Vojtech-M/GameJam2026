@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://7k4e0l5r4knv"]
+
+[ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="1_8k7wh"]
+[ext_resource type="Script" uid="uid://wx60qswr0tbr" path="res://Scenes/character_body_2d.gd" id="2_iufkg"]
+[ext_resource type="Texture2D" uid="uid://c2tluan0ebsur" path="res://stickman.png" id="3_0f5h7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_126ht"]
+size = Vector2(479.9187, 56.070457)
+
+[node name="Node2D" type="Node2D" unique_id=143675290]
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1801525512]
+offset_left = 364.0
+offset_top = 191.0
+offset_right = 864.0
+offset_bottom = 441.0
+texture_normal = ExtResource("1_8k7wh")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=140543545]
+script = ExtResource("2_iufkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=463761379]
+position = Vector2(212, 308)
+scale = Vector2(6.15625, 7.0625)
+texture = ExtResource("3_0f5h7")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=950923320]
+position = Vector2(211, 161)
+scale = Vector2(1.845, 1.845)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=800643080]
+modulate = Color(1, 0.02745098, 1, 1)
+position = Vector2(146.88347, 230.3523)
+shape = SubResource("RectangleShape2D_126ht")
+one_way_collision = true
