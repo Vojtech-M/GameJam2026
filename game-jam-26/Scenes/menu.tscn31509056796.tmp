@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4w14208kkij8"]
+
+[ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://irbko7au1nsr" path="res://Scenes/texture_button.gd" id="2_xhh6f"]
+
+[node name="Menu" type="Node2D" unique_id=1265133582]
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=476095592]
+offset_left = 497.0
+offset_top = 265.0
+offset_right = 997.0
+offset_bottom = 515.0
+texture_normal = ExtResource("1_1rerr")
+script = ExtResource("2_xhh6f")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

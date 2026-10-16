@@ -20,3 +20,4 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		if collider and collider is CharacterBody2D:
 			# Tady můžeš upravit chování, když míč trefí hráče
 			pass
+			

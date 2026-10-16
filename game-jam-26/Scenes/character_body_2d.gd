@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 600.0
+const SPEED = 400.0
 
 func _physics_process(delta: float) -> void:
 	# Vynulujeme směr na začátku každého snímku

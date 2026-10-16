@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://b272g5voe2qp3"]
+
+[ext_resource type="Script" uid="uid://3glse2jmh4do" path="res://Scenes/Lockpick.gd" id="1_kl408"]
+[ext_resource type="Texture2D" uid="uid://c33qduiibxpkd" path="res://Scenes/lockpick.png" id="1_trk1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e33p4"]
+size = Vector2(806, 43)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kl408"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl408"]
+size = Vector2(1518.5, 39)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b1s6l"]
+bounce = 0.05
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1s6l"]
+size = Vector2(104, 108)
+
+[node name="Lockpick" type="Node2D" unique_id=2067077017]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1964683819]
+offset_left = 618.0
+offset_top = 421.0
+offset_right = 1330.0
+offset_bottom = 558.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1219757409]
+script = ExtResource("1_kl408")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=829194399]
+position = Vector2(296, 486.5)
+shape = SubResource("RectangleShape2D_e33p4")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D" unique_id=1662457621]
+position = Vector2(113, -33.5)
+scale = Vector2(4.7382813, 5.015625)
+texture = ExtResource("1_trk1n")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=934732389]
+collision_layer = 255
+collision_mask = 255
+physics_material_override = SubResource("PhysicsMaterial_kl408")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1880956748]
+position = Vector2(746, 162)
+shape = SubResource("RectangleShape2D_kl408")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=279862961]
+collision_layer = 255
+collision_mask = 255
+physics_material_override = SubResource("PhysicsMaterial_kl408")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2115314800]
+position = Vector2(736, 570)
+shape = SubResource("RectangleShape2D_kl408")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1749081650]
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_b1s6l")
+lock_rotation = true
+linear_damp = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1795793944]
+position = Vector2(667, 258)
+shape = SubResource("RectangleShape2D_b1s6l")
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D/CollisionShape2D" unique_id=466525924]
+offset_left = -48.0
+offset_top = -103.0
+offset_right = 35.0
+offset_bottom = 38.0
+color = Color(0.29411766, 1, 1, 1)

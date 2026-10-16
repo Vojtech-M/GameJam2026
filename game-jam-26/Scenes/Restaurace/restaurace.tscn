@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://enncwfy0i75j"]
+
+[ext_resource type="Script" uid="uid://wx60qswr0tbr" path="res://Scenes/character_body_2d.gd" id="1_8axbe"]
+[ext_resource type="Texture2D" uid="uid://c2tluan0ebsur" path="res://stickman.png" id="2_owxhj"]
+[ext_resource type="Texture2D" uid="uid://4fxeqqr74uav" path="res://restaurace.png" id="3_owxhj"]
+[ext_resource type="Script" uid="uid://c4k7faib80nnc" path="res://Scenes/Restaurace/area_2d.gd" id="4_qks4f"]
+[ext_resource type="Script" uid="uid://krof3qgqij5i" path="res://Scenes/Restaurace/rich_text_label.gd" id="5_nobny"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ytiqv"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11tg5"]
+size = Vector2(1948, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fqehe"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53220"]
+size = Vector2(29.75, 1106.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fgsjt"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uh7ni"]
+size = Vector2(24, 1113)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nobny"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymji2"]
+size = Vector2(1937, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qks4f"]
+radius = 79.15807
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owxhj"]
+size = Vector2(117, 89)
+
+[node name="Restaurace" type="Node2D" unique_id=181635454]
+
+[node name="Restaurace" type="Sprite2D" parent="." unique_id=1761917960]
+position = Vector2(981, 566)
+texture = ExtResource("3_owxhj")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=220892763]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_ytiqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1505459016]
+position = Vector2(962, 1090)
+shape = SubResource("RectangleShape2D_11tg5")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1781945022]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_fqehe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=825633635]
+position = Vector2(1932.125, 538.75)
+shape = SubResource("RectangleShape2D_53220")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1825935383]
+physics_material_override = SubResource("PhysicsMaterial_fgsjt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1918239504]
+position = Vector2(3, 552)
+shape = SubResource("RectangleShape2D_uh7ni")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=868930239]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_nobny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1740242304]
+position = Vector2(958.5, 0)
+shape = SubResource("RectangleShape2D_ymji2")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1147820303 groups=["Player"]]
+scale = Vector2(0.44, 0.44)
+collision_layer = 255
+script = ExtResource("1_8axbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2114012027]
+position = Vector2(459, 152)
+scale = Vector2(6.15625, 7.0625)
+texture = ExtResource("2_owxhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1188131144]
+position = Vector2(456, 157)
+shape = SubResource("CircleShape2D_qks4f")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=619119956]
+script = ExtResource("4_qks4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=763714511]
+position = Vector2(49, 124)
+shape = SubResource("RectangleShape2D_owxhj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1864898640]
+offset_left = 330.0
+offset_top = 287.0
+offset_right = 634.78503
+offset_bottom = 334.56
+scale = Vector2(4.28, 3.999)
+text = "pokus"
+script = ExtResource("5_nobny")

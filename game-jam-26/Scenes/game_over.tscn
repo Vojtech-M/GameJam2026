@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bab1blfsr2ogx"]
+
+[node name="GameOver" type="Node2D" unique_id=679511062]
+
+[node name="Label" type="Label" parent="." unique_id=135246181]
+offset_left = 850.0
+offset_top = 362.0
+offset_right = 890.0
+offset_bottom = 385.0
+text = "Test"
