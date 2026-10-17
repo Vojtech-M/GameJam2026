@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bm7wkthw2riul"]
 
 [ext_resource type="Script" uid="uid://qhmglykyuox0" path="res://Scenes/Garáž/pointandklick.gd" id="1_bxw6i"]
+[ext_resource type="Texture2D" uid="uid://ed4mj1p7hgcc" path="res://Scenes/linguiniPizzeria/Linguinenpizzeriezvenku.PNG" id="2_84he8"]
 [ext_resource type="Texture2D" uid="uid://b8uwqnr8lwd35" path="res://Scenes/linguiniPizzeria/Frame1.png" id="2_ksddd"]
 [ext_resource type="Texture2D" uid="uid://cctug8ikhsssk" path="res://Scenes/linguiniPizzeria/kukla..png" id="3_8882r"]
+[ext_resource type="Texture2D" uid="uid://d0ghcwg06f3jx" path="res://Scenes/linguiniPizzeria/noviny.PNG" id="3_unx1b"]
+[ext_resource type="Texture2D" uid="uid://dhcqh4dnbg15e" path="res://Scenes/linguiniPizzeria/kucharcepice.PNG" id="4_70m1f"]
 [ext_resource type="Texture2D" uid="uid://b4pxi1qjtaste" path="res://Scenes/linguiniPizzeria/Cernej kuchař.png" id="4_hhqex"]
 [ext_resource type="Texture2D" uid="uid://bsg2iknwdpkl4" path="res://Scenes/linguiniPizzeria/auto ve tmě.png" id="5_8lmkx"]
 [ext_resource type="Texture2D" uid="uid://dqf0w1k7o7w0d" path="res://Scenes/linguiniPizzeria/auto okynko.png" id="6_8882r"]
@@ -23,34 +26,46 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Frame1" type="Sprite2D" parent="Control" unique_id=1121203567]
+[node name="Frame1" type="Sprite2D" parent="Control" unique_id=368763157]
+position = Vector2(973, 525)
+texture = ExtResource("2_84he8")
+
+[node name="Frame2" type="Sprite2D" parent="Control" unique_id=1385376228]
+position = Vector2(981, 529)
+texture = ExtResource("3_unx1b")
+
+[node name="Frame3" type="Sprite2D" parent="Control" unique_id=628724545]
+position = Vector2(973, 533)
+texture = ExtResource("4_70m1f")
+
+[node name="Frame4" type="Sprite2D" parent="Control" unique_id=1121203567]
 position = Vector2(946, 536)
 texture = ExtResource("2_ksddd")
 
-[node name="Frame2" type="Sprite2D" parent="Control" unique_id=1696804096]
+[node name="Frame5" type="Sprite2D" parent="Control" unique_id=1696804096]
 position = Vector2(950, 545)
 texture = ExtResource("3_8882r")
 
-[node name="Frame3" type="Sprite2D" parent="Control" unique_id=2111759540]
+[node name="Frame6" type="Sprite2D" parent="Control" unique_id=2111759540]
 position = Vector2(944, 533)
 texture = ExtResource("4_hhqex")
 
-[node name="Frame4" type="Sprite2D" parent="Control" unique_id=1238261254]
+[node name="Frame7" type="Sprite2D" parent="Control" unique_id=1238261254]
 position = Vector2(959, 545)
 texture = ExtResource("5_8lmkx")
 
-[node name="Frame5" type="Sprite2D" parent="Control" unique_id=258618777]
+[node name="Frame8" type="Sprite2D" parent="Control" unique_id=258618777]
 position = Vector2(944, 545)
 texture = ExtResource("6_8882r")
 
-[node name="Frame6" type="Sprite2D" parent="Control" unique_id=737740499]
+[node name="Frame9" type="Sprite2D" parent="Control" unique_id=737740499]
 position = Vector2(940, 537)
 texture = ExtResource("7_hhqex")
 
-[node name="Frame7" type="Sprite2D" parent="Control" unique_id=1009677969]
+[node name="Frame10" type="Sprite2D" parent="Control" unique_id=1009677969]
 position = Vector2(948, 532)
 texture = ExtResource("8_8lmkx")
 
-[node name="Frame8" type="Sprite2D" parent="Control" unique_id=1815883594]
+[node name="Frame11" type="Sprite2D" parent="Control" unique_id=1815883594]
 position = Vector2(948, 547)
 texture = ExtResource("8_8lmkx")

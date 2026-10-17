@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dmid8kmqn02yn"]
+
+[ext_resource type="Script" uid="uid://c848dm1khmvk7" path="res://Scenes/Farma/StadionControll.gd" id="1_pmqpa"]
+[ext_resource type="Texture2D" uid="uid://bfcidfm35skxf" path="res://stadion.png" id="2_xsj3h"]
+[ext_resource type="Texture2D" uid="uid://bo3khwi84vyd" path="res://Scenes/cutscene/trenerout.png" id="3_xsj3h"]
+[ext_resource type="Texture2D" uid="uid://dsnd5ipefoeo3" path="res://Scenes/cutscene/trenercloseup.png" id="4_vbjh4"]
+
+[node name="StadionCutscene" type="Node2D" unique_id=2122560872]
+
+[node name="Control" type="Control" parent="." unique_id=1997992095]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_pmqpa")
+
+[node name="Frame1" type="Sprite2D" parent="Control" unique_id=1598878367]
+position = Vector2(952, 556)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_xsj3h")
+
+[node name="Frame2" type="Sprite2D" parent="Control" unique_id=770279295]
+position = Vector2(919, 551)
+texture = ExtResource("3_xsj3h")
+
+[node name="Frame3" type="Sprite2D" parent="Control" unique_id=855766118]
+position = Vector2(945, 553)
+texture = ExtResource("4_vbjh4")

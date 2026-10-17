@@ -10,7 +10,10 @@ extends Control
 	$Frame5,
 	$Frame6,
 	$Frame7,
-	$Frame8
+	$Frame8,
+	$Frame9,
+	$Frame10,
+	$Frame11
 	
 ]
 

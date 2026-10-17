@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var is_enemy_goal: bool = false
-@export_file("*.tscn") var win_scene_path: String = "res://Scenes/linguiniPizzeria/Linguini.tscn"
+@export_file("*.tscn") var win_scene_path: String = "res://Scenes/Garáž/pacenoi.tscn"
 
 const TARGET_PIZZAS: int = 6
 var delivered_pizzas: int = 0

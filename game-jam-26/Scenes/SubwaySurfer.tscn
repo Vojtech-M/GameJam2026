@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://chuirbstrdpbw" path="res://Scenes/character_body_3d.gd" id="1_ieu8o"]
 [ext_resource type="Script" uid="uid://2xrk3moqaq8u" path="res://Scenes/area_3d.gd" id="2_ngd4x"]
+[ext_resource type="ArrayMesh" uid="uid://i57kmvhg7nld" path="res://Scenes/Chevrolet_Camaro_SS_Low.obj" id="2_yss6t"]
+[ext_resource type="PackedScene" uid="uid://24m385084g6g" path="res://Scenes/auto2.glb" id="3_5ioam"]
+[ext_resource type="PackedScene" uid="uid://c885l5lqhabpg" path="res://Scenes/auto.glb" id="3_8024r"]
+[ext_resource type="PackedScene" uid="uid://p0jejtykxfjs" path="res://Scenes/kužel.glb" id="4_yss6t"]
+[ext_resource type="PackedScene" uid="uid://luw5tq87y4wv" path="res://Scenes/Tunel.glb" id="5_i5oq1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bkrpe"]
 
@@ -30,6 +35,9 @@ albedo_color = Color(1, 1, 0.1254902, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_126ht"]
 size = Vector3(259.07538, 322.02612, 50.33287)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ngd4x"]
+size = Vector3(8.701138, 322.02612, 6.0548973)
+
 [node name="SubwaySurfer" type="Node3D" unique_id=2060305715]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=211423865 groups=["Player"]]
@@ -39,14 +47,26 @@ collision_mask = 255
 script = ExtResource("1_ieu8o")
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=1112013576]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034486055, 0.78116035, 1.4083252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034486055, -6.5141554, 1.4083252)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1505699266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.379831, 0)
 shape = SubResource("BoxShape3D_bkrpe")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=394412134]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5926914, -1.2944336)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.520111, -1.2944336)
 mesh = SubResource("CylinderMesh_bkrpe")
+
+[node name="ChevroletCamaroSsLow2" type="MeshInstance3D" parent="Player" unique_id=1653358778]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.23549962, -10.274181, -10.463135)
+visible = false
+mesh = ExtResource("2_yss6t")
+
+[node name="auto2" parent="Player" unique_id=71735645 instance=ExtResource("3_5ioam")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.582278, -11.960114, -11.390869)
+
+[node name="auto" parent="Player" unique_id=1076616923 instance=ExtResource("3_8024r")]
+transform = Transform3D(-0.9999619, 0, -0.008726574, 0, 1, 0, 0.008726574, 0, -0.9999619, -23.83926, -12.865762, -9.827515)
 
 [node name="Path3D" type="Path3D" parent="." unique_id=906855227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1792065)
@@ -134,3 +154,30 @@ material = SubResource("StandardMaterial3D_126ht")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D4" unique_id=1763996022]
 transform = Transform3D(1, 0, 0, 0, 0.99955726, 0.029752642, 0, -0.029752642, 0.99955726, -138.31638, -21.094908, 520.66003)
 shape = SubResource("BoxShape3D_126ht")
+
+[node name="Area3D5" type="StaticBody3D" parent="." unique_id=538973064]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 54.90631, 0, 390.87366)
+collision_layer = 65535
+collision_mask = 65535
+
+[node name="kužel" parent="Area3D5" unique_id=750874069 instance=ExtResource("4_yss6t")]
+transform = Transform3D(3.195, 0, 0, 0, 3.195, 0, 0, 0, 3.195, -54.376877, -8.005968, 541.6069)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5" unique_id=1400569849]
+transform = Transform3D(1, 0, 0, 0, 0.99955726, 0.029752642, 0, -0.029752642, 0.99955726, -54.910877, -20.436214, 542.78925)
+shape = SubResource("BoxShape3D_ngd4x")
+
+[node name="Area3D6" type="StaticBody3D" parent="." unique_id=1561923057]
+transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, 55.506386, 0, 59.36444)
+collision_layer = 65535
+collision_mask = 65535
+
+[node name="kužel" parent="Area3D6" unique_id=344443489 instance=ExtResource("4_yss6t")]
+transform = Transform3D(3.195, 0, 0, 0, 3.195, 0, 0, 0, 3.195, -54.376877, -7.5598197, 541.6069)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D6" unique_id=1894670483]
+transform = Transform3D(1, 0, 0, 0, 0.99955726, 0.029752642, 0, -0.029752642, 0.99955726, -54.910877, -20.436214, 542.78925)
+shape = SubResource("BoxShape3D_ngd4x")
+
+[node name="Tunel" parent="." unique_id=1501398786 instance=ExtResource("5_i5oq1")]
+transform = Transform3D(-6.281326e-07, 0, -14.37, 0, 14.37, 0, 14.37, 0, -6.281326e-07, 3.1060486, -4.8068604, -511.30338)

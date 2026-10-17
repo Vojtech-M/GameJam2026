@@ -1,27 +1,22 @@
 [gd_scene format=3 uid="uid://cwc3bus0c7d80"]
 
-[ext_resource type="Script" uid="uid://bffvjtpgo2b32" path="res://Scenes/cutscene/cutscenecontroller.gd" id="1_jllbf"]
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_mekjx"]
-file = "res://Scenes/Restaurace/pizzeria.ogv"
+[ext_resource type="Texture2D" uid="uid://bg1feryh4slmt" path="res://Scenes/cutscene/pizzeriaintro.PNG" id="2_jllbf"]
+[ext_resource type="Script" uid="uid://ct3ie6cfi4hrn" path="res://Scenes/cutscene/INTROCONTROLLLER.gd" id="2_m6t1h"]
 
 [node name="Cutscene" type="Node2D" unique_id=1777447331]
 
-[node name="CutsceneController" type="Control" parent="." unique_id=234025825]
+[node name="Control" type="Control" parent="." unique_id=1475646804]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_jllbf")
+script = ExtResource("2_m6t1h")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CutsceneController" unique_id=1451036210]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-stream = SubResource("VideoStreamTheora_mekjx")
+[node name="Frame1" type="Sprite2D" parent="Control" unique_id=2134508546]
+position = Vector2(945, 559)
+texture = ExtResource("2_jllbf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CutsceneController" unique_id=1589280121]
-
-[node name="Label" type="Label" parent="CutsceneController/CanvasLayer" unique_id=23013406]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Frame2" type="Sprite2D" parent="Control" unique_id=1610612021]
+position = Vector2(943, 558)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("2_jllbf")
