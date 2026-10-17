@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://4fxeqqr74uav" path="res://restaurace.png" id="3_owxhj"]
 [ext_resource type="Script" uid="uid://c4k7faib80nnc" path="res://Scenes/Restaurace/area_2d.gd" id="4_qks4f"]
 [ext_resource type="Script" uid="uid://krof3qgqij5i" path="res://Scenes/Restaurace/rich_text_label.gd" id="5_nobny"]
+[ext_resource type="VideoStream" uid="uid://cx4f0071ntrsu" path="res://Scenes/Restaurace/animation.ogv" id="6_ymji2"]
+[ext_resource type="Texture2D" uid="uid://daogk3au8wsvr" path="res://Scenes/Stadio/fotbalfield.png" id="7_uh7ni"]
+[ext_resource type="Texture2D" uid="uid://cafjybuwu6i0y" path="res://Scenes/mic (1).png" id="8_53220"]
+[ext_resource type="Texture2D" uid="uid://bbmbae82gr3d" path="res://Scenes/mic.png" id="8_fqehe"]
+[ext_resource type="Texture2D" uid="uid://clkforldsfslk" path="res://Scenes/Restaurace/neww.png" id="9_ytiqv"]
+[ext_resource type="Script" uid="uid://fb1qp8fslp00" path="res://Scenes/Restaurace/animated_sprite_2d.gd" id="10_53220"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ytiqv"]
 friction = 0.0
@@ -40,10 +46,155 @@ radius = 79.15807
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owxhj"]
 size = Vector2(117, 89)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_11tg5"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nio8"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qqwa"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sm2c"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edcfw"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnd1p"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpuxf"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5oee"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k64wn"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja416"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76uew"]
+atlas = ExtResource("9_ytiqv")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqehe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_fqehe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fqehe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_53220")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_53220")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fqehe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fqehe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fqehe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_53220")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_53220")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11tg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nio8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qqwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sm2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edcfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnd1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpuxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5oee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k64wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja416")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76uew")
+}],
+"loop": 1,
+"name": &"kolecko",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_uh7ni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fqehe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uh7ni")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 1,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation_2",
+"speed": 5.0
+}]
+
 [node name="Restaurace" type="Node2D" unique_id=181635454]
 
 [node name="Restaurace" type="Sprite2D" parent="." unique_id=1761917960]
-position = Vector2(981, 566)
+position = Vector2(981, 563)
 texture = ExtResource("3_owxhj")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=220892763]
@@ -106,3 +257,18 @@ offset_bottom = 334.56
 scale = Vector2(4.28, 3.999)
 text = "pokus"
 script = ExtResource("5_nobny")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2065589180]
+offset_left = 864.0
+offset_top = 699.0
+offset_right = 904.0
+offset_bottom = 739.0
+scale = Vector2(2.3172543, 1.8451105)
+stream = ExtResource("6_ymji2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=587654737]
+position = Vector2(1019, 909)
+scale = Vector2(1, 1.1999998)
+sprite_frames = SubResource("SpriteFrames_fqehe")
+animation = &"kolecko"
+script = ExtResource("10_53220")

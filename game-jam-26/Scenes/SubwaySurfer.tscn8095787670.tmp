@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://emxacoedyyxf"]
+
+[ext_resource type="Script" uid="uid://chuirbstrdpbw" path="res://Scenes/character_body_3d.gd" id="1_ieu8o"]
+[ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="2_bkrpe"]
+[ext_resource type="Script" uid="uid://2xrk3moqaq8u" path="res://Scenes/area_3d.gd" id="2_ngd4x"]
+[ext_resource type="Script" uid="uid://c7ch14b4njj3g" path="res://Scenes/srazka.gd" id="4_yss6t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bkrpe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ieu8o"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bkrpe"]
+material = SubResource("StandardMaterial3D_ieu8o")
+
+[sub_resource type="Curve3D" id="Curve3D_bkrpe"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.087423325, 0, -3.2659655, 0, 0, 0, 0, 0, 0, -0.09502554, 0, 1.1964298, 0, 0, 0, 0, 0, 0, -0.109018, -0.5777211, 5.052749),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yss6t"]
+size = Vector3(6.607605, 2.7452393, 5.298352)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bkrpe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_126ht"]
+albedo_color = Color(1, 1, 0.1254902, 1)
+
+[sub_resource type="Environment" id="Environment_yss6t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5oq1"]
+size = Vector3(52.080566, 34.21412, 33.67872)
+
+[node name="SubwaySurfer" type="Node3D" unique_id=2060305715]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=211423865 groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.582278, 0, 1864.3909)
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_ieu8o")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1112013576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034486055, 0.78116035, 1.4083252)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1505699266]
+shape = SubResource("BoxShape3D_bkrpe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=394412134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5926914, -1.2944336)
+mesh = SubResource("CylinderMesh_bkrpe")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=906855227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1792065)
+curve = SubResource("Curve3D_bkrpe")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=501472544]
+transform = Transform3D(24.065609, 0, 0, 0, 1, 0, 0, 0, 300.30887, 15.494831, -11.454911, -1.6047769)
+polygon = PackedVector2Array(0, 0, -0.12534738, 0.42564583, 1.1191816, 0.32926154, 1, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Area3D" type="Area3D" parent="." unique_id=122798856]
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("2_ngd4x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1282974742]
+transform = Transform3D(39.90132, 2.8079047, 0, -2.8079047, 39.90132, 0, 0, 0, 40, -62.341953, -46.55638, -587.52747)
+shape = SubResource("BoxShape3D_yss6t")
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="." unique_id=61252440]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2" unique_id=1384252501]
+transform = Transform3D(1, 0, 0, 0, 0.9996491, -0.026489122, 0, 0.026489122, 0.9996491, -2.6553807, 0, 6.271225)
+shape = SubResource("SphereShape3D_bkrpe")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1781620419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.459999, -4.5218506, -163.86157)
+size = Vector3(5.2764893, 9.757446, 14.075928)
+material = SubResource("StandardMaterial3D_126ht")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=499703317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2299995, -2.2609253, 1633.9785)
+size = Vector3(5.2764893, 9.757446, 14.075928)
+material = SubResource("StandardMaterial3D_126ht")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1392730141]
+transform = Transform3D(0.9972936, 0, -0.073521994, 0, 1, 0, 0.073521994, 0, 0.9972936, 0, 198.63745, 927.3249)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1809116796]
+transform = Transform3D(0.40222615, 0, 0.91554034, 0, 1, 0, -0.91554034, 0, 0.40222615, -101.29028, 0, 1054.2129)
+texture = ExtResource("2_bkrpe")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2011707461]
+environment = SubResource("Environment_yss6t")
+
+[node name="Area3D2" type="Area3D" parent="." unique_id=1691250030]
+collision_layer = 65535
+collision_mask = 65535
+script = ExtResource("4_yss6t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=302439392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3535156, 5.4334, 1623.564)
+shape = SubResource("BoxShape3D_i5oq1")
+
+[connection signal="body_entered" from="Area3D2" to="Player" method="_on_area_3d_2_body_entered"]

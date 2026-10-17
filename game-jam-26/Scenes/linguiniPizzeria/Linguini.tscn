@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://hcjmmdwagam3"]
+
+[ext_resource type="Script" uid="uid://dh813i5kfsbtu" path="res://Scenes/linguiniPizzeria/linguini.gd" id="1_16iow"]
+[ext_resource type="VideoStream" uid="uid://c2btaiqbamkai" path="res://Scenes/linguiniPizzeria/LinguinenEWSPAPER.ogv" id="2_twswb"]
+
+[node name="Linguini" type="Node2D" unique_id=736340808]
+
+[node name="Control" type="Control" parent="." unique_id=423960327]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_16iow")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=1873724528]
+
+[node name="Label" type="Label" parent="Control/CanvasLayer" unique_id=1232264815]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=1751373355]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 40.0
+stream = ExtResource("2_twswb")

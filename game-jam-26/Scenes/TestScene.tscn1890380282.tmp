@@ -1,0 +1,253 @@
+[gd_scene format=3 uid="uid://7k4e0l5r4knv"]
+
+[ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="1_8k7wh"]
+[ext_resource type="Texture2D" uid="uid://bmn53o0wark4g" path="res://Scenes/rrstartace.png" id="1_c264a"]
+[ext_resource type="Script" uid="uid://wx60qswr0tbr" path="res://Scenes/character_body_2d.gd" id="2_iufkg"]
+[ext_resource type="Texture2D" uid="uid://c2tluan0ebsur" path="res://stickman.png" id="3_0f5h7"]
+[ext_resource type="Texture2D" uid="uid://w75alpme57p1" path="res://Scenes/pizza.png" id="5_c264a"]
+[ext_resource type="Script" uid="uid://bm0hldvlqry8d" path="res://Scenes/pizza.gd" id="6_5rbs6"]
+[ext_resource type="Script" uid="uid://cm2acoksd2ofw" path="res://Scenes/area_2d.gd" id="6_qsjrb"]
+[ext_resource type="Script" uid="uid://balfhbn8d6ad7" path="res://Scenes/customer.gd" id="8_5rbs6"]
+[ext_resource type="Texture2D" uid="uid://bo5rvymaw5p0u" path="res://Sprites/icon.svg" id="9_5rbs6"]
+[ext_resource type="Script" uid="uid://c65210wu13tt4" path="res://Scenes/enemy.gd" id="10_201fe"]
+[ext_resource type="Script" uid="uid://dcrxwbtawm4by" path="res://Scenes/intro.gd" id="11_xjl2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_201fe"]
+size = Vector2(99, 112)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d2rsb"]
+friction = 0.0
+bounce = 3.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_126ht"]
+radius = 69.050705
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x70nd"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njdfj"]
+size = Vector2(1937, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0v50x"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x70nd"]
+size = Vector2(24, 1113)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1aa5d"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v50x"]
+size = Vector2(29.75, 1106.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_awl04"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6gaj"]
+size = Vector2(1941, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aa5d"]
+size = Vector2(783.125, 1381.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c264a"]
+size = Vector2(544.25, 326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rbs6"]
+size = Vector2(278.5, 629)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_201fe"]
+load_path = "res://.godot/imported/icon.svg-b67cfb692a937e61d2bda8561d9e8db7.s3tc.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xh1p"]
+size = Vector2(278.5, 629)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjl2p"]
+size = Vector2(50.75, 56)
+
+[node name="Node2D" type="Node2D" unique_id=143675290]
+
+[node name="Rrstartace" type="Sprite2D" parent="." unique_id=1617176436]
+position = Vector2(961, 541)
+texture = ExtResource("1_c264a")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1801525512]
+offset_left = 1826.0
+offset_top = 404.0
+offset_right = 2326.0
+offset_bottom = 657.0
+texture_normal = ExtResource("1_8k7wh")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=140543545]
+collision_layer = 255
+script = ExtResource("2_iufkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=463761379]
+position = Vector2(459, 152)
+scale = Vector2(6.15625, 7.0625)
+texture = ExtResource("3_0f5h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1717491765]
+position = Vector2(454, 187)
+shape = SubResource("RectangleShape2D_201fe")
+
+[node name="Pizza2" type="RigidBody2D" parent="." unique_id=1473591284]
+position = Vector2(601, 381)
+physics_material_override = SubResource("PhysicsMaterial_d2rsb")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("6_5rbs6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pizza2" unique_id=1770908213]
+position = Vector2(-2, -12)
+shape = SubResource("CircleShape2D_126ht")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pizza2/CollisionShape2D" unique_id=1239024362]
+position = Vector2(1.0000153, -2.9999847)
+scale = Vector2(4.625, 3.34375)
+texture = ExtResource("5_c264a")
+
+[node name="Pizza" type="RigidBody2D" parent="." unique_id=199442725]
+position = Vector2(911, 350)
+physics_material_override = SubResource("PhysicsMaterial_d2rsb")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("6_5rbs6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pizza" unique_id=1408922872]
+position = Vector2(-2, -12)
+shape = SubResource("CircleShape2D_126ht")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pizza/CollisionShape2D" unique_id=529021191]
+position = Vector2(1.0000153, -2.9999847)
+scale = Vector2(4.625, 3.34375)
+texture = ExtResource("5_c264a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=397713877]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_x70nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=803672545]
+position = Vector2(958.5, 0)
+shape = SubResource("RectangleShape2D_njdfj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1682820412]
+physics_material_override = SubResource("PhysicsMaterial_0v50x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2000720188]
+position = Vector2(3, 552)
+shape = SubResource("RectangleShape2D_x70nd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1472146883]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_1aa5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1977060023]
+position = Vector2(1932.125, 538.75)
+shape = SubResource("RectangleShape2D_0v50x")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=672685498]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_awl04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1181108796]
+position = Vector2(957.5, 1095.5)
+shape = SubResource("RectangleShape2D_a6gaj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1108105033 node_paths=PackedStringArray("label_pizzas", "label_timer")]
+position = Vector2(-212, 513)
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("6_qsjrb")
+label_pizzas = NodePath("Label")
+label_timer = NodePath("Label2")
+
+[node name="Label" type="Label" parent="Area2D" unique_id=1927359886]
+offset_left = 421.0
+offset_top = 36.0
+offset_right = 620.0
+offset_bottom = 228.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=953085192]
+position = Vector2(1596.5625, 73.125)
+shape = SubResource("RectangleShape2D_1aa5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=655146488]
+position = Vector2(-67, -43)
+texture = ExtResource("1_8k7wh")
+
+[node name="Label2" type="Label" parent="Area2D" unique_id=1871200975]
+offset_left = 803.0
+offset_top = -47.0
+offset_right = 907.0
+offset_bottom = 90.0
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=438810934]
+position = Vector2(3, -6)
+script = ExtResource("8_5rbs6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1399286764]
+position = Vector2(2483, 67)
+shape = SubResource("RectangleShape2D_c264a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1717026407]
+position = Vector2(2215, 771)
+texture = ExtResource("1_8k7wh")
+
+[node name="prekazka2" type="StaticBody2D" parent="." unique_id=1413419319]
+position = Vector2(0, -278)
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_awl04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="prekazka2" unique_id=323473865]
+position = Vector2(2745, 1030)
+shape = SubResource("RectangleShape2D_5rbs6")
+
+[node name="Sprite2D" type="Sprite2D" parent="prekazka2" unique_id=116802775]
+position = Vector2(2727, 918)
+scale = Vector2(-2.2076018, 4.9545665)
+texture = SubResource("CompressedTexture2D_201fe")
+
+[node name="prekazka" type="StaticBody2D" parent="." unique_id=1303946894]
+position = Vector2(0, -139)
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_awl04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="prekazka" unique_id=1021770409]
+position = Vector2(898.75, 909.5)
+shape = SubResource("RectangleShape2D_6xh1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="prekazka" unique_id=1966995020]
+position = Vector2(893.6798, 913.6853)
+scale = Vector2(-2.2076018, 4.9545665)
+texture = ExtResource("9_5rbs6")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=538804194]
+position = Vector2(685, 150)
+collision_layer = 255
+script = ExtResource("10_201fe")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=226353801]
+position = Vector2(473, 594)
+scale = Vector2(0.16000003, 1)
+texture = ExtResource("1_8k7wh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1260861583]
+position = Vector2(457.625, 672)
+shape = SubResource("RectangleShape2D_xjl2p")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=492962335]
+offset_left = 395.0
+offset_top = 379.0
+offset_right = 812.0
+offset_bottom = 702.0
+scale = Vector2(1.26, 1.26)
+text = "tes"
+script = ExtResource("11_xjl2p")
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

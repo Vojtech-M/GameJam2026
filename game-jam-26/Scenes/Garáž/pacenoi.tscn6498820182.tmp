@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bm7wkthw2riul"]
+
+[ext_resource type="Texture2D" uid="uid://bo5rvymaw5p0u" path="res://Sprites/icon.svg" id="1_hi5jh"]
+[ext_resource type="Script" uid="uid://bg6crmf8bakku" path="res://Scenes/Garáž/paklic.gd" id="1_uqw4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt7st"]
+size = Vector2(139, 174)
+
+[node name="Pacenoi" type="Node2D" unique_id=29844363]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1824576520]
+position = Vector2(7, 0)
+script = ExtResource("1_uqw4i")
+speed = null
+tolerance = null
+range_x = null
+range_y = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2127474820]
+position = Vector2(760, 442)
+shape = SubResource("RectangleShape2D_pt7st")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=960237884]
+position = Vector2(761, 437)
+texture = ExtResource("1_hi5jh")
+
+[node name="pin" type="Sprite2D" parent="." unique_id=2116294484]

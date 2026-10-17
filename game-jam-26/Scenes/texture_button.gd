@@ -1,6 +1,6 @@
 extends TextureButton
 
-@export_file("*.tscn") var target_scene: String = "res://Scenes/Restaurace/restaurace.tscn"
+@export_file("*.tscn") var target_scene: String = "res://Scenes/cutscene/IntroCutscene.tscn"
 @export var video_player: VideoStreamPlayer
 
 func _ready() -> void:

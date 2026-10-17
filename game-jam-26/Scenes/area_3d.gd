@@ -1,6 +1,6 @@
 extends Area3D
 
-@export_file("*.tscn") var next_scene: String = "res://Scenes/game_over.tscn"
+@export_file("*.tscn") var next_scene: String = "res://Scenes/TestScene2.tscn"
 
 func _ready() -> void:
 	if not body_entered.is_connected(_on_body_entered):

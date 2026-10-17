@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bm7wkthw2riul"]
+
+[ext_resource type="Script" uid="uid://qhmglykyuox0" path="res://Scenes/Garáž/pointandklick.gd" id="1_bxw6i"]
+[ext_resource type="Texture2D" uid="uid://b8uwqnr8lwd35" path="res://Scenes/linguiniPizzeria/Frame1.png" id="2_ksddd"]
+[ext_resource type="Texture2D" uid="uid://cctug8ikhsssk" path="res://Scenes/linguiniPizzeria/kukla..png" id="3_8882r"]
+[ext_resource type="Texture2D" uid="uid://b4pxi1qjtaste" path="res://Scenes/linguiniPizzeria/Cernej kuchař.png" id="4_hhqex"]
+[ext_resource type="Texture2D" uid="uid://bsg2iknwdpkl4" path="res://Scenes/linguiniPizzeria/auto ve tmě.png" id="5_8lmkx"]
+[ext_resource type="Texture2D" uid="uid://dqf0w1k7o7w0d" path="res://Scenes/linguiniPizzeria/auto okynko.png" id="6_8882r"]
+[ext_resource type="Texture2D" uid="uid://dtlccty7s4tu1" path="res://Scenes/linguiniPizzeria/auto_interier.png" id="7_hhqex"]
+[ext_resource type="Texture2D" uid="uid://cx4a8xsfungvd" path="res://Scenes/linguiniPizzeria/Totti_detail.png" id="8_8lmkx"]
+
+[node name="Pacenoi" type="Node2D" unique_id=29844363]
+
+[node name="Control" type="Control" parent="." unique_id=1236291819]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bxw6i")
+
+[node name="Label" type="Label" parent="Control" unique_id=1979577210]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Frame1" type="Sprite2D" parent="Control" unique_id=1121203567]
+position = Vector2(946, 536)
+texture = ExtResource("2_ksddd")
+
+[node name="Frame2" type="Sprite2D" parent="Control" unique_id=1696804096]
+position = Vector2(950, 545)
+texture = ExtResource("3_8882r")
+
+[node name="Frame3" type="Sprite2D" parent="Control" unique_id=2111759540]
+position = Vector2(944, 533)
+texture = ExtResource("4_hhqex")
+
+[node name="Frame4" type="Sprite2D" parent="Control" unique_id=1238261254]
+position = Vector2(959, 545)
+texture = ExtResource("5_8lmkx")
+
+[node name="Frame5" type="Sprite2D" parent="Control" unique_id=258618777]
+position = Vector2(944, 545)
+texture = ExtResource("6_8882r")
+
+[node name="Frame6" type="Sprite2D" parent="Control" unique_id=737740499]
+position = Vector2(940, 537)
+texture = ExtResource("7_hhqex")
+
+[node name="Frame7" type="Sprite2D" parent="Control" unique_id=1009677969]
+position = Vector2(948, 532)
+texture = ExtResource("8_8lmkx")
+
+[node name="Frame8" type="Sprite2D" parent="Control" unique_id=1815883594]
+position = Vector2(948, 547)
+texture = ExtResource("8_8lmkx")

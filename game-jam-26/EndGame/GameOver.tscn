@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cis8jov72yk0a"]
+
+[ext_resource type="Script" uid="uid://c603c7w2g7so5" path="res://EndGame/endgame.gd" id="1_dr6eo"]
+[ext_resource type="Texture2D" uid="uid://c7fcdj3mu3ni8" path="res://Scenes/cutscene/clovek2.png" id="1_jpa57"]
+[ext_resource type="Texture2D" uid="uid://v76tocy5n8cg" path="res://Scenes/cutscene/clovek3.png" id="2_vipb2"]
+
+[node name="GameOver" type="Node2D" unique_id=116763686]
+
+[node name="Control" type="Control" parent="." unique_id=337906379]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dr6eo")
+
+[node name="Frame1" type="Sprite2D" parent="Control" unique_id=1745082964]
+texture = ExtResource("1_jpa57")
+
+[node name="Frame2" type="Sprite2D" parent="Control" unique_id=1906017035]
+texture = ExtResource("2_vipb2")

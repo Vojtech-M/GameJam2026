@@ -1,0 +1,263 @@
+[gd_scene format=3 uid="uid://bdxy8c4oy1hen"]
+
+[ext_resource type="Texture2D" uid="uid://daogk3au8wsvr" path="res://Scenes/Stadio/fotbalfield.png" id="1_3g3r1"]
+[ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="2_se0ja"]
+[ext_resource type="Script" uid="uid://71stvqwl5e8l" path="res://Scenes/fotballer.gd" id="3_3g3r1"]
+[ext_resource type="Texture2D" uid="uid://crcijmuj24fih" path="res://Sprites/cutalista.png" id="4_se0ja"]
+[ext_resource type="Texture2D" uid="uid://dhxuf8oj138xh" path="res://Sprites/ball.png" id="5_se0ja"]
+[ext_resource type="Script" uid="uid://cmn4mgvwla3rf" path="res://Scenes/brána.gd" id="6_3g3r1"]
+[ext_resource type="Script" uid="uid://cln7b3kyngwar" path="res://Scenes/football goalkeeprer.gd" id="7_se0ja"]
+[ext_resource type="Texture2D" uid="uid://bo5rvymaw5p0u" path="res://Sprites/icon.svg" id="8_v8m3i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0f5h7"]
+radius = 79.15807
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d2rsb"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="GDScript" id="GDScript_5rbs6"]
+script/source = "extends RigidBody2D
+
+@export var max_speed: float = 300.0  # Zde si nastavte maximální rychlost podle potřeby
+@onready var animated_sprite: AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
+var should_reset: bool = false
+
+# Tuto funkci zavolá brána
+func reset_ball() -> void:
+	should_reset = true
+
+# Toto je fyzikální smyčka přímo v RigidBody2D
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	if should_reset:
+		# Nastavíme pozici natvrdo na střed obrazovky
+		var center_pos = get_viewport_rect().size / 2
+		state.transform = Transform2D(0.0, center_pos)
+		animated_sprite.play(\"default\")
+		# Vynulujeme rychlost
+		state.linear_velocity = Vector2.ZERO
+		state.angular_velocity = 0.0
+		
+		should_reset = false
+		return # Pokud resetujeme, dál už rychlost řešit nemusíme
+
+	# --- OMEZENÍ MAXIMÁLNÍ RYCHLOSTI ---
+	if state.linear_velocity.length() > max_speed:
+		# Zmenší vektor rychlosti tak, aby odpovídal maximální povolené hodnotě
+		state.linear_velocity = state.linear_velocity.normalized() * max_speed
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_126ht"]
+radius = 51.0392
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x70nd"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njdfj"]
+size = Vector2(1937, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0v50x"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x70nd"]
+size = Vector2(24, 1113)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1aa5d"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v50x"]
+size = Vector2(29.75, 1106.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_awl04"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6gaj"]
+size = Vector2(1948, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aa5d"]
+size = Vector2(152.5, 253)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3g3r1"]
+font_size = 72
+font_color = Color(0.09019608, 0.08627451, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a3nqr"]
+font_size = 70
+font_color = Color(1, 0, 0.30588236, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c264a"]
+size = Vector2(70.5, 326)
+
+[sub_resource type="Curve2D" id="Curve2D_3ts3j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1036, 845, -37.025635, 113.02562, 37.025635, -113.02562, 841, 701, -308.3066, 132.63947, 308.3066, -132.63947, 1010, 517, 0, 0, 0, 0, 1036, 845)
+}
+point_count = 4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pi1nj"]
+bounce = 0.85
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7isby"]
+radius = 75.50497
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8m3i"]
+size = Vector2(470, 20)
+
+[node name="Node2D" type="Node2D" unique_id=143675290]
+
+[node name="Fotbalfield" type="Sprite2D" parent="." unique_id=578517740]
+position = Vector2(975, 520)
+texture = ExtResource("1_3g3r1")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1801525512]
+offset_left = 1798.0
+offset_top = 409.0
+offset_right = 2298.0
+offset_bottom = 662.0
+texture_normal = ExtResource("2_se0ja")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=140543545]
+collision_layer = 255
+script = ExtResource("3_3g3r1")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=463761379]
+position = Vector2(455, 144.99998)
+scale = Vector2(1.406, 1.615)
+texture = ExtResource("4_se0ja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1717491765]
+position = Vector2(456, 184)
+shape = SubResource("CircleShape2D_0f5h7")
+
+[node name="Ball" type="RigidBody2D" parent="." unique_id=199442725 groups=["ball"]]
+position = Vector2(926, 478)
+physics_material_override = SubResource("PhysicsMaterial_d2rsb")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
+script = SubResource("GDScript_5rbs6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1408922872]
+position = Vector2(-1, 14)
+shape = SubResource("CircleShape2D_126ht")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D" unique_id=529021191]
+position = Vector2(-0.9999924, -1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_se0ja")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=397713877]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_x70nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=803672545]
+position = Vector2(958.5, 0)
+shape = SubResource("RectangleShape2D_njdfj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1682820412]
+physics_material_override = SubResource("PhysicsMaterial_0v50x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2000720188]
+position = Vector2(3, 552)
+shape = SubResource("RectangleShape2D_x70nd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1472146883]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_1aa5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1977060023]
+position = Vector2(1932.125, 538.75)
+shape = SubResource("RectangleShape2D_0v50x")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=672685498]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_awl04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1181108796]
+position = Vector2(962, 1090)
+shape = SubResource("RectangleShape2D_a6gaj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1108105033 node_paths=PackedStringArray("label_player_score", "label_enemy_score")]
+position = Vector2(-191, 513)
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("6_3g3r1")
+is_enemy_goal = true
+label_player_score = NodePath("Label")
+label_enemy_score = NodePath("../Area2D2/Label2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=953085192]
+position = Vector2(2109.25, 25.5)
+shape = SubResource("RectangleShape2D_1aa5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=655146488]
+texture = ExtResource("2_se0ja")
+
+[node name="Label" type="Label" parent="Area2D" unique_id=88116328]
+offset_left = 600.0
+offset_top = -432.0
+offset_right = 640.0
+offset_bottom = -409.0
+label_settings = SubResource("LabelSettings_3g3r1")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=438810934 node_paths=PackedStringArray("label_enemy_score")]
+position = Vector2(3, -6)
+script = ExtResource("6_3g3r1")
+label_enemy_score = NodePath("Label2")
+
+[node name="Label2" type="Label" parent="Area2D2" unique_id=1615908603]
+offset_left = 1400.0
+offset_top = 75.0
+offset_right = 1440.0
+offset_bottom = 98.0
+label_settings = SubResource("LabelSettings_a3nqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1399286764]
+position = Vector2(28, 515)
+shape = SubResource("RectangleShape2D_c264a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1717026407]
+position = Vector2(2336, 470)
+texture = ExtResource("2_se0ja")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2124948364]
+position = Vector2(834, -110)
+curve = SubResource("Curve2D_3ts3j")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=96108179]
+position = Vector2(1036, 845)
+rotation = -3.0088818
+script = ExtResource("7_se0ja")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Path2D/PathFollow2D" unique_id=34018665]
+position = Vector2(490.74112, 857.5542)
+rotation = -2.9447227
+physics_material_override = SubResource("PhysicsMaterial_pi1nj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/StaticBody2D5" unique_id=334922189]
+position = Vector2(649, 745.00006)
+shape = SubResource("CircleShape2D_7isby")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=421474691]
+position = Vector2(-5.947276, 0.79390717)
+texture = ExtResource("8_v8m3i")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1085100887]
+position = Vector2(395, 134)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1982167441]
+position = Vector2(1695, 257)
+shape = SubResource("RectangleShape2D_v8m3i")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=796740192]
+position = Vector2(790, 268)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=884545711]
+position = Vector2(1270, 424)
+shape = SubResource("RectangleShape2D_v8m3i")
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

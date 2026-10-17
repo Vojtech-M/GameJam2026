@@ -14,10 +14,12 @@ size = Vector2(1518.5, 39)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b1s6l"]
 friction = 0.0
-bounce = 26.26
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gslj"]
+size = Vector2(139, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1s6l"]
-size = Vector2(197.625, 76.875)
+size = Vector2(81.40625, 80.4375)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6gslj"]
 radius = 37.054016
@@ -50,7 +52,17 @@ collision_mask = 255
 physics_material_override = SubResource("PhysicsMaterial_kl408")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1880956748]
-position = Vector2(746, 162)
+position = Vector2(-197, 367)
+shape = SubResource("RectangleShape2D_kl408")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=809741843]
+position = Vector2(1641, 4)
+collision_layer = 255
+collision_mask = 255
+physics_material_override = SubResource("PhysicsMaterial_kl408")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2134268127]
+position = Vector2(-197, 367)
 shape = SubResource("RectangleShape2D_kl408")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=279862961]
@@ -70,7 +82,7 @@ scale = Vector2(40.44, 1.003746)
 color = Color(1, 0.43137255, 1, 1)
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=1622444892]
-position = Vector2(321, -6)
+position = Vector2(321, -10)
 mass = 0.003
 physics_material_override = SubResource("PhysicsMaterial_b1s6l")
 lock_rotation = true
@@ -79,8 +91,12 @@ max_contacts_reported = 5
 linear_damp = 0.5
 script = ExtResource("3_b1s6l")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=59505709]
+position = Vector2(290, 282)
+shape = SubResource("RectangleShape2D_6gslj")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1083563448]
-position = Vector2(654, 234)
+position = Vector2(293, 299)
 shape = SubResource("RectangleShape2D_b1s6l")
 
 [node name="ColorRect" type="ColorRect" parent="RigidBody2D2/CollisionShape2D2" unique_id=433023123]
@@ -91,7 +107,7 @@ offset_bottom = 38.0
 color = Color(0.29411766, 1, 1, 1)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1749081650]
-position = Vector2(-2, 0)
+position = Vector2(617, 79)
 mass = 0.033
 physics_material_override = SubResource("PhysicsMaterial_b1s6l")
 can_sleep = false

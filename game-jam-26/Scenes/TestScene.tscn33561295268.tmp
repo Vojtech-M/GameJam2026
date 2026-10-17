@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://7k4e0l5r4knv"]
+
+[ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="1_8k7wh"]
+[ext_resource type="Texture2D" uid="uid://daogk3au8wsvr" path="res://Scenes/Stadio/fotbalfield.png" id="1_c264a"]
+[ext_resource type="Script" uid="uid://wx60qswr0tbr" path="res://Scenes/character_body_2d.gd" id="2_iufkg"]
+[ext_resource type="Texture2D" uid="uid://c2tluan0ebsur" path="res://stickman.png" id="3_0f5h7"]
+[ext_resource type="Texture2D" uid="uid://cafjybuwu6i0y" path="res://Scenes/mic (1).png" id="5_0f5h7"]
+[ext_resource type="Script" uid="uid://cm2acoksd2ofw" path="res://Scenes/area_2d.gd" id="6_qsjrb"]
+[ext_resource type="Script" uid="uid://bul1whoo4vq0j" path="res://Scenes/area_2d_2.gd" id="8_6xh1p"]
+[ext_resource type="Texture2D" uid="uid://bo5rvymaw5p0u" path="res://Sprites/icon.svg" id="9_5rbs6"]
+[ext_resource type="Script" uid="uid://bk4c3fjqcee8f" path="res://Scenes/trenerAI.gd" id="9_201fe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0f5h7"]
+radius = 79.15807
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d2rsb"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="GDScript" id="GDScript_5rbs6"]
+script/source = "
+extends RigidBody2D
+
+@export var speed: float = 220.0
+@export var ball_path: NodePath
+@export var attack_offset: float = 50.0
+
+var ball: RigidBody2D
+
+func _ready() -> void:
+	ball = get_node_or_null(ball_path) as RigidBody2D
+
+func _physics_process(_delta: float) -> void:
+	if ball == null:
+		return
+
+	# Enemy tries to get behind the ball,
+	# on its right side, to push it left.
+	var target = ball.global_position + Vector2(attack_offset, 0)
+
+	var direction = target - global_position
+
+	if direction.length() > 10.0:
+		velocity = direction.normalized() * speed
+	else:
+		velocity = Vector2.ZERO
+
+	move_and_slide()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_126ht"]
+radius = 69.050705
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x70nd"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njdfj"]
+size = Vector2(1937, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0v50x"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x70nd"]
+size = Vector2(24, 1113)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1aa5d"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v50x"]
+size = Vector2(29.75, 1106.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_awl04"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6gaj"]
+size = Vector2(1948, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aa5d"]
+size = Vector2(812, 1359)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c264a"]
+size = Vector2(161, 1171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xh1p"]
+size = Vector2(159, 178)
+
+[node name="Node2D" type="Node2D" unique_id=143675290]
+
+[node name="Fotbalfield" type="Sprite2D" parent="." unique_id=578517740]
+position = Vector2(975, 547)
+texture = ExtResource("1_c264a")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1801525512]
+offset_left = 1798.0
+offset_top = 409.0
+offset_right = 2298.0
+offset_bottom = 662.0
+texture_normal = ExtResource("1_8k7wh")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=140543545]
+collision_layer = 255
+script = ExtResource("2_iufkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=463761379]
+position = Vector2(459, 152)
+scale = Vector2(6.15625, 7.0625)
+texture = ExtResource("3_0f5h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1717491765]
+position = Vector2(456, 157)
+shape = SubResource("CircleShape2D_0f5h7")
+
+[node name="Ball" type="RigidBody2D" parent="." unique_id=199442725]
+position = Vector2(911, 509)
+physics_material_override = SubResource("PhysicsMaterial_d2rsb")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
+script = SubResource("GDScript_5rbs6")
+speed = null
+ball_path = null
+attack_offset = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1408922872]
+position = Vector2(-2, -12)
+shape = SubResource("CircleShape2D_126ht")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball/CollisionShape2D" unique_id=529021191]
+position = Vector2(1.0000153, -2.9999847)
+scale = Vector2(4.625, 3.34375)
+texture = ExtResource("5_0f5h7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=397713877]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_x70nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=803672545]
+position = Vector2(958.5, 0)
+shape = SubResource("RectangleShape2D_njdfj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1682820412]
+physics_material_override = SubResource("PhysicsMaterial_0v50x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2000720188]
+position = Vector2(3, 552)
+shape = SubResource("RectangleShape2D_x70nd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1472146883]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_1aa5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1977060023]
+position = Vector2(1932.125, 538.75)
+shape = SubResource("RectangleShape2D_0v50x")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=672685498]
+collision_layer = 255
+physics_material_override = SubResource("PhysicsMaterial_awl04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1181108796]
+position = Vector2(962, 1090)
+shape = SubResource("RectangleShape2D_a6gaj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1108105033]
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("6_qsjrb")
+is_enemy_goal = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=953085192]
+position = Vector2(1676, 461.5)
+shape = SubResource("RectangleShape2D_1aa5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=655146488]
+texture = ExtResource("1_8k7wh")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=438810934]
+script = ExtResource("8_6xh1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1399286764]
+position = Vector2(70.5, 575.5)
+shape = SubResource("RectangleShape2D_c264a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1717026407]
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="." unique_id=914308387]
+script = ExtResource("9_201fe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2" unique_id=2010416682]
+position = Vector2(1109, 552)
+shape = SubResource("RectangleShape2D_6xh1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2" unique_id=700961365]
+position = Vector2(1103, 551)
+texture = ExtResource("9_5rbs6")
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
