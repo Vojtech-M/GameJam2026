@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bm7wkthw2riul"]
 
 [ext_resource type="Script" uid="uid://qhmglykyuox0" path="res://Scenes/Garáž/pointandklick.gd" id="1_bxw6i"]
-[ext_resource type="Texture2D" uid="uid://ed4mj1p7hgcc" path="res://Scenes/linguiniPizzeria/Linguinenpizzeriezvenku.PNG" id="2_84he8"]
+[ext_resource type="Texture2D" uid="uid://cxnhvyaln2c4c" path="res://Scenes/Restaurace/mezitim u konkurence.PNG" id="2_84he8"]
 [ext_resource type="Texture2D" uid="uid://b8uwqnr8lwd35" path="res://Scenes/linguiniPizzeria/Frame1.png" id="2_ksddd"]
 [ext_resource type="Texture2D" uid="uid://cctug8ikhsssk" path="res://Scenes/linguiniPizzeria/kukla..png" id="3_8882r"]
 [ext_resource type="Texture2D" uid="uid://d0ghcwg06f3jx" path="res://Scenes/linguiniPizzeria/noviny.PNG" id="3_unx1b"]
@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://b4pxi1qjtaste" path="res://Scenes/linguiniPizzeria/Cernej kuchař.png" id="4_hhqex"]
 [ext_resource type="Texture2D" uid="uid://bsg2iknwdpkl4" path="res://Scenes/linguiniPizzeria/auto ve tmě.png" id="5_8lmkx"]
 [ext_resource type="Texture2D" uid="uid://dqf0w1k7o7w0d" path="res://Scenes/linguiniPizzeria/auto okynko.png" id="6_8882r"]
-[ext_resource type="Texture2D" uid="uid://dtlccty7s4tu1" path="res://Scenes/linguiniPizzeria/auto_interier.png" id="7_hhqex"]
 [ext_resource type="Texture2D" uid="uid://cx4a8xsfungvd" path="res://Scenes/linguiniPizzeria/Totti_detail.png" id="8_8lmkx"]
+[ext_resource type="Texture2D" uid="uid://kpmornktk0u4" path="res://Scenes/cutscene/auto_interier.png" id="10_84he8"]
+[ext_resource type="Texture2D" uid="uid://blp267uohvaob" path="res://Scenes/cutscene/auto_INTERIER2.png" id="12_unx1b"]
+[ext_resource type="Texture2D" uid="uid://bfii02ygrjkws" path="res://Scenes/cutscene/tottidetail22.png" id="12_upyak"]
+[ext_resource type="Texture2D" uid="uid://biaqicaepy73a" path="res://Scenes/cutscene/auto_INTERIER3.png" id="13_70m1f"]
+[ext_resource type="AudioStream" uid="uid://bmdbxii5fwfw8" path="res://subway.wav" id="15_qdcv4"]
 
 [node name="Pacenoi" type="Node2D" unique_id=29844363]
 
@@ -27,45 +31,69 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Frame1" type="Sprite2D" parent="Control" unique_id=368763157]
-position = Vector2(973, 525)
+position = Vector2(973, 521)
+scale = Vector2(1.08, 1.08)
 texture = ExtResource("2_84he8")
 
 [node name="Frame2" type="Sprite2D" parent="Control" unique_id=1385376228]
 position = Vector2(981, 529)
+scale = Vector2(1.105, 1.105)
 texture = ExtResource("3_unx1b")
 
 [node name="Frame3" type="Sprite2D" parent="Control" unique_id=628724545]
 position = Vector2(973, 533)
+scale = Vector2(1.105, 1.105)
 texture = ExtResource("4_70m1f")
 
 [node name="Frame4" type="Sprite2D" parent="Control" unique_id=1121203567]
 position = Vector2(946, 536)
+scale = Vector2(1.075, 1.075)
 texture = ExtResource("2_ksddd")
 
 [node name="Frame5" type="Sprite2D" parent="Control" unique_id=1696804096]
 position = Vector2(950, 545)
+scale = Vector2(1.095, 1.095)
 texture = ExtResource("3_8882r")
 
 [node name="Frame6" type="Sprite2D" parent="Control" unique_id=2111759540]
 position = Vector2(944, 533)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("4_hhqex")
 
 [node name="Frame7" type="Sprite2D" parent="Control" unique_id=1238261254]
 position = Vector2(959, 545)
+scale = Vector2(1.065, 1.065)
 texture = ExtResource("5_8lmkx")
 
 [node name="Frame8" type="Sprite2D" parent="Control" unique_id=258618777]
 position = Vector2(944, 545)
+scale = Vector2(1.095, 1.095)
 texture = ExtResource("6_8882r")
 
 [node name="Frame9" type="Sprite2D" parent="Control" unique_id=737740499]
 position = Vector2(940, 537)
-texture = ExtResource("7_hhqex")
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("10_84he8")
 
 [node name="Frame10" type="Sprite2D" parent="Control" unique_id=1009677969]
 position = Vector2(948, 532)
+scale = Vector2(1.08, 1.08)
 texture = ExtResource("8_8lmkx")
 
 [node name="Frame11" type="Sprite2D" parent="Control" unique_id=1815883594]
 position = Vector2(948, 547)
-texture = ExtResource("8_8lmkx")
+scale = Vector2(1.085, 1.085)
+texture = ExtResource("12_upyak")
+
+[node name="Frame12" type="Sprite2D" parent="Control" unique_id=318398405]
+position = Vector2(962, 537)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("12_unx1b")
+
+[node name="Frame13" type="Sprite2D" parent="Control" unique_id=615061426]
+position = Vector2(962, 532)
+scale = Vector2(1.085, 1.085)
+texture = ExtResource("13_70m1f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="Control" unique_id=1036603216]
+stream = ExtResource("15_qdcv4")

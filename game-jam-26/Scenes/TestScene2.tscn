@@ -1,13 +1,18 @@
 [gd_scene format=3 uid="uid://bdxy8c4oy1hen"]
 
-[ext_resource type="Texture2D" uid="uid://daogk3au8wsvr" path="res://Scenes/Stadio/fotbalfield.png" id="1_3g3r1"]
+[ext_resource type="Texture2D" uid="uid://5sajih5d0hnc" path="res://Scenes/fotball.png" id="1_se0ja"]
 [ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="2_se0ja"]
 [ext_resource type="Script" uid="uid://71stvqwl5e8l" path="res://Scenes/fotballer.gd" id="3_3g3r1"]
 [ext_resource type="Texture2D" uid="uid://crcijmuj24fih" path="res://Sprites/cutalista.png" id="4_se0ja"]
 [ext_resource type="Texture2D" uid="uid://dhxuf8oj138xh" path="res://Sprites/ball.png" id="5_se0ja"]
 [ext_resource type="Script" uid="uid://cmn4mgvwla3rf" path="res://Scenes/brána.gd" id="6_3g3r1"]
 [ext_resource type="Script" uid="uid://cln7b3kyngwar" path="res://Scenes/football goalkeeprer.gd" id="7_se0ja"]
-[ext_resource type="Texture2D" uid="uid://bo5rvymaw5p0u" path="res://Sprites/icon.svg" id="8_v8m3i"]
+[ext_resource type="Texture2D" uid="uid://cmusxobupw0ro" path="res://branka.png" id="7_v8m3i"]
+[ext_resource type="Texture2D" uid="uid://bnrm02h3mkykd" path="res://brankar.png" id="8_se0ja"]
+[ext_resource type="AudioStream" uid="uid://chgihc6mqgvbk" path="res://Scenes/cutscene/freesound_community-metal-whistle-6121.mp3" id="10_3ts3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8m3i"]
+size = Vector2(470, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0f5h7"]
 radius = 79.15807
@@ -94,9 +99,9 @@ size = Vector2(70.5, 326)
 
 [sub_resource type="Curve2D" id="Curve2D_3ts3j"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1036, 845, -37.025635, 113.02562, 37.025635, -113.02562, 841, 701, -308.3066, 132.63947, 308.3066, -132.63947, 1010, 517, 0, 0, 0, 0, 1036, 845)
+"points": PackedVector2Array(-308.3066, 132.63947, 308.3066, -132.63947, 945, 560, 43, -31.5, -43, 31.5, 1032, 832, 15.5, 46, -15.5, -46, 882, 694, 0, 0, 0, 0, 945, 560, 0, 0, 0, 0, 874, 575, -137, 36, 137, -36, 870, 800, 30, 104, -30, -104, 1013, 667, 0, 0, 0, 0, 945, 560)
 }
-point_count = 4
+point_count = 8
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pi1nj"]
 bounce = 0.85
@@ -104,20 +109,32 @@ bounce = 0.85
 [sub_resource type="CircleShape2D" id="CircleShape2D_7isby"]
 radius = 75.50497
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8m3i"]
-size = Vector2(470, 20)
-
 [node name="Node2D" type="Node2D" unique_id=143675290]
 
-[node name="Fotbalfield" type="Sprite2D" parent="." unique_id=578517740]
-position = Vector2(975, 520)
-texture = ExtResource("1_3g3r1")
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=796740192]
+position = Vector2(790, 268)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=884545711]
+position = Vector2(1270, 424)
+shape = SubResource("RectangleShape2D_v8m3i")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1085100887]
+position = Vector2(395, 134)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1982167441]
+position = Vector2(1695, 257)
+shape = SubResource("RectangleShape2D_v8m3i")
+
+[node name="Fotball" type="Sprite2D" parent="." unique_id=1646523662]
+position = Vector2(1029, 533)
+scale = Vector2(1.105, 1.105)
+texture = ExtResource("1_se0ja")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1801525512]
-offset_left = 1798.0
-offset_top = 409.0
-offset_right = 2298.0
-offset_bottom = 662.0
+offset_left = 2373.0
+offset_top = 996.0
+offset_right = 2873.0
+offset_bottom = 1249.0
 texture_normal = ExtResource("2_se0ja")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=140543545]
@@ -125,7 +142,7 @@ collision_layer = 255
 script = ExtResource("3_3g3r1")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=463761379]
-position = Vector2(455, 144.99998)
+position = Vector2(454.99997, 145)
 scale = Vector2(1.406, 1.615)
 texture = ExtResource("4_se0ja")
 
@@ -191,17 +208,19 @@ label_player_score = NodePath("Label")
 label_enemy_score = NodePath("../Area2D2/Label2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=953085192]
-position = Vector2(2109.25, 25.5)
+position = Vector2(2145, 26)
 shape = SubResource("RectangleShape2D_1aa5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=655146488]
-texture = ExtResource("2_se0ja")
+position = Vector2(199, -0.9999995)
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("7_v8m3i")
 
 [node name="Label" type="Label" parent="Area2D" unique_id=88116328]
-offset_left = 600.0
-offset_top = -432.0
-offset_right = 640.0
-offset_bottom = -409.0
+offset_left = 594.0
+offset_top = -436.0
+offset_right = 634.0
+offset_bottom = -337.0
 label_settings = SubResource("LabelSettings_3g3r1")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=438810934 node_paths=PackedStringArray("label_enemy_score")]
@@ -221,16 +240,17 @@ position = Vector2(28, 515)
 shape = SubResource("RectangleShape2D_c264a")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1717026407]
-position = Vector2(2336, 470)
-texture = ExtResource("2_se0ja")
+position = Vector2(2666, 633)
+texture = ExtResource("7_v8m3i")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=2124948364]
-position = Vector2(834, -110)
+position = Vector2(782, -131)
 curve = SubResource("Curve2D_3ts3j")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=96108179]
-position = Vector2(1036, 845)
-rotation = -3.0088818
+position = Vector2(992.5303, 542.26355)
+rotation = -0.29770648
+progress = 50.75
 script = ExtResource("7_se0ja")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Path2D/PathFollow2D" unique_id=34018665]
@@ -243,21 +263,17 @@ position = Vector2(649, 745.00006)
 shape = SubResource("CircleShape2D_7isby")
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=421474691]
-position = Vector2(-5.947276, 0.79390717)
-texture = ExtResource("8_v8m3i")
+position = Vector2(1.1890211, 1.1351681)
+rotation = 2.909464
+texture = ExtResource("8_se0ja")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1085100887]
-position = Vector2(395, 134)
+[node name="Branka" type="Sprite2D" parent="." unique_id=1280414355]
+position = Vector2(1935, 538)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("7_v8m3i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1982167441]
-position = Vector2(1695, 257)
-shape = SubResource("RectangleShape2D_v8m3i")
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=796740192]
-position = Vector2(790, 268)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=884545711]
-position = Vector2(1270, 424)
-shape = SubResource("RectangleShape2D_v8m3i")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1762965682]
+stream = ExtResource("10_3ts3j")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

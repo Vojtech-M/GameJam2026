@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://7k4e0l5r4knv"]
 
 [ext_resource type="Texture2D" uid="uid://52n4h8tbpmgr" path="res://Sprites/Start_text.png" id="1_8k7wh"]
-[ext_resource type="Texture2D" uid="uid://bmn53o0wark4g" path="res://Scenes/rrstartace.png" id="1_c264a"]
+[ext_resource type="Texture2D" uid="uid://dxjnldens4pw4" path="res://Scenes/cutscene/pizzeriaINSIDE.png" id="1_dwn5r"]
 [ext_resource type="AudioStream" uid="uid://c0ac6ui17p5nk" path="res://Scenes/Restaurace/BeepBox-Song.wav" id="1_lp1f3"]
+[ext_resource type="Texture2D" uid="uid://ds6045wwrouti" path="res://Scenes/linguiniPizzeria/piizzbetterdelivere.png" id="2_65o0v"]
 [ext_resource type="Script" uid="uid://wx60qswr0tbr" path="res://Scenes/character_body_2d.gd" id="2_iufkg"]
 [ext_resource type="Texture2D" uid="uid://qib1kbpx136c" path="res://Sprites/kuchar.png" id="5_8c81w"]
 [ext_resource type="Texture2D" uid="uid://w75alpme57p1" path="res://Scenes/pizza.png" id="5_c264a"]
@@ -16,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c65210wu13tt4" path="res://Scenes/enemy.gd" id="10_201fe"]
 [ext_resource type="Script" uid="uid://dcrxwbtawm4by" path="res://Scenes/intro.gd" id="11_xjl2p"]
 [ext_resource type="Script" uid="uid://c06tdd7syhnqg" path="res://Scenes/secondAnimationobject.gd" id="15_p30di"]
+[ext_resource type="Texture2D" uid="uid://woguvv3c0lw8" path="res://Scenes/linguiniPizzeria/vozicek.png" id="16_1vcy8"]
 [ext_resource type="Script" uid="uid://bl7c1oedq63is" path="res://Scenes/path_follow_2d.gd" id="17_8c81w"]
 [ext_resource type="Texture2D" uid="uid://vjl7qgaubofv" path="res://Scenes/cutscene/CISNIK2.png" id="18_dwn5r"]
 [ext_resource type="Texture2D" uid="uid://dgukrl4natir5" path="res://Scenes/cutscene/clovek.png" id="19_1vcy8"]
@@ -60,6 +62,8 @@ bounce = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6gaj"]
 size = Vector2(1941, 31)
 
+[sub_resource type="Theme" id="Theme_1vcy8"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aa5d"]
 size = Vector2(783.125, 1381.75)
 
@@ -80,9 +84,9 @@ size = Vector2(71, 237)
 
 [sub_resource type="Curve2D" id="Curve2D_p30di"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 664, 812, 71.91742, 91.959984, -71.91742, -91.959984, 283, 818, 161.51945, 128.50818, -161.51945, -128.50818, 704, 478, 0, 0, 0, 0, 649, 745, 115.53947, 416.1779, -115.53947, -416.1779, 1035, 469)
+"points": PackedVector2Array(0, 0, 0, 0, 340, 805, -59.65609, -37.609276, 59.65609, 37.609276, 809, 250, 54.468605, -40.20302, -54.468605, 40.20302, 778, 878, 50.57799, 37.609276, -50.57799, -37.609276, 244, 800, 0, 0, 0, 0, 1176, 292, 0, 0, 0, 0, 909, 777, 0, 0, 0, 0, 433, 764, 0, 0, 0, 0, 340, 805)
 }
-point_count = 5
+point_count = 8
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8c81w"]
 bounce = 0.85
@@ -92,19 +96,36 @@ radius = 75.50497
 
 [sub_resource type="Curve2D" id="Curve2D_8c81w"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 664, 812, 0, 0, 0, 0, 480.29138, 380.90027, 288.37488, 422.34244, -288.37488, -422.34244, 433, 303, -77.72301, -315.79926, 77.72301, 315.79926, 704, 478, 0, 0, 0, 0, 649, 745, 37.690727, 1357.9578, -37.690727, -1357.9578, 860, 303)
+"points": PackedVector2Array(0, 0, 0, 0, 320, 48, -38.906147, 15.562458, 38.906147, -15.562458, 479, 726, 98.56224, -5.187486, -98.56224, 5.187486, 582, 98, 41.499893, 6.484356, -41.499893, -6.484356, -181, 675, 0, 0, 0, 0, 194, 78, -82.99978, -1.2968715, 82.99978, 1.2968715, 395, 733, 32.421787, 55.765476, -32.421787, -55.765476, 903, 4, 243.81184, -38.906147, -243.81184, 38.906147, 540, 137, 0, 0, 0, 0, 320, 48)
 }
-point_count = 6
+point_count = 9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwn5r"]
+size = Vector2(506.5, 139.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vcy8"]
+size = Vector2(1094.25, 165.875)
 
 [node name="Node2D" type="Node2D" unique_id=143675290]
 
+[node name="Pizzeriatest" type="Sprite2D" parent="." unique_id=683094699]
+position = Vector2(967, 540)
+texture = ExtResource("1_dwn5r")
+
+[node name="Piizzbetterdelivere" type="Sprite2D" parent="." unique_id=400737949]
+position = Vector2(1492.0001, 991)
+scale = Vector2(2.0856252, 1.1397336)
+texture = ExtResource("2_65o0v")
+
+[node name="Clovek6" type="Sprite2D" parent="Piizzbetterdelivere" unique_id=41808203]
+position = Vector2(140.00592, -749.2979)
+scale = Vector2(0.47947255, 0.8773981)
+texture = ExtResource("21_o5yho")
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1986275743]
 stream = ExtResource("1_lp1f3")
+volume_db = 5.276
 autoplay = true
-
-[node name="Rrstartace" type="Sprite2D" parent="." unique_id=1617176436]
-position = Vector2(963, 515)
-texture = ExtResource("1_c264a")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1801525512]
 offset_left = 1959.0
@@ -200,10 +221,14 @@ label_pizzas = NodePath("Label")
 patience_bar = NodePath("TextureProgressBar")
 
 [node name="Label" type="Label" parent="Area2D" unique_id=1927359886]
-offset_left = 421.0
-offset_top = 36.0
-offset_right = 620.0
-offset_bottom = 228.0
+offset_left = 1508.0
+offset_top = 435.0
+offset_right = 1707.0
+offset_bottom = 627.0
+theme = SubResource("Theme_1vcy8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.85882354, 0, 0, 0)
+theme_override_font_sizes/font_size = 34
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=953085192]
 position = Vector2(2276, 110)
@@ -214,15 +239,15 @@ position = Vector2(-67, -43)
 texture = ExtResource("1_8k7wh")
 
 [node name="Label2" type="Label" parent="Area2D" unique_id=1871200975]
-offset_left = 803.0
-offset_top = -47.0
-offset_right = 907.0
-offset_bottom = 90.0
+offset_left = 1659.0
+offset_top = 454.0
+offset_right = 1763.0
+offset_bottom = 591.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Area2D" unique_id=965619456]
-offset_left = 879.0
+offset_left = 1582.0
 offset_top = -464.0
-offset_right = 1391.0
+offset_right = 2094.0
 offset_bottom = -336.0
 texture_under = ExtResource("8_hctok")
 texture_over = ExtResource("9_lp1f3")
@@ -288,29 +313,30 @@ collision_layer = 255
 script = ExtResource("15_p30di")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=226353801]
-position = Vector2(219, 775)
-scale = Vector2(0.16000003, 1)
-texture = ExtResource("1_8k7wh")
+position = Vector2(607, 400)
+scale = Vector2(0.88000005, 1)
+texture = ExtResource("16_1vcy8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1260861583]
-position = Vector2(226, 767)
+position = Vector2(605, 400)
 shape = SubResource("RectangleShape2D_xjl2p")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=492962335]
-offset_left = -10.9999695
-offset_top = 1315.0
-offset_right = 406.00003
-offset_bottom = 1638.0
+offset_left = -11.0
+offset_top = 1315.0001
+offset_right = 406.0
+offset_bottom = 1638.0001
 scale = Vector2(1.26, 1.26)
 text = "tes"
 script = ExtResource("11_xjl2p")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1078449103]
+position = Vector2(-10, -12)
 curve = SubResource("Curve2D_p30di")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=983060309]
-position = Vector2(664, 812)
-rotation = 2.8346698
+position = Vector2(340, 805)
+rotation = -0.96630645
 script = ExtResource("17_8c81w")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Path2D/PathFollow2D" unique_id=265324971]
@@ -323,15 +349,16 @@ position = Vector2(649, 745.00006)
 shape = SubResource("CircleShape2D_8c81w")
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=938219146]
+scale = Vector2(1.355, 1.355)
 texture = ExtResource("18_dwn5r")
 
 [node name="Path2D2" type="Path2D" parent="." unique_id=446813487]
-position = Vector2(592, -91)
+position = Vector2(635, 154)
 curve = SubResource("Curve2D_8c81w")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" unique_id=1650563435]
-position = Vector2(664, 812)
-rotation = -1.9736317
+position = Vector2(320, 48)
+rotation = 1.3993413
 script = ExtResource("17_8c81w")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Path2D2/PathFollow2D" unique_id=1467503163]
@@ -345,6 +372,7 @@ shape = SubResource("CircleShape2D_8c81w")
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D2/PathFollow2D" unique_id=519425314]
 position = Vector2(4.5997663, 1.9601421)
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("18_dwn5r")
 
 [node name="Clovek" type="Sprite2D" parent="." unique_id=348411992]
@@ -367,8 +395,20 @@ texture = ExtResource("20_65o0v")
 position = Vector2(1855, 779)
 texture = ExtResource("21_o5yho")
 
-[node name="Clovek6" type="Sprite2D" parent="." unique_id=41808203]
-position = Vector2(1784, 120)
-texture = ExtResource("21_o5yho")
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1686014407]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1380623918]
+position = Vector2(1022, 170)
+shape = SubResource("RectangleShape2D_dwn5r")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5/CollisionShape2D" unique_id=1145868154]
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=1674122106]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=1724486140]
+position = Vector2(1239.875, 976.9375)
+shape = SubResource("RectangleShape2D_1vcy8")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6/CollisionShape2D" unique_id=726074899]
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

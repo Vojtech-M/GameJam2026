@@ -13,7 +13,9 @@ extends Control
 	$Frame8,
 	$Frame9,
 	$Frame10,
-	$Frame11
+	$Frame11,
+	$Frame12,
+	$Frame13
 	
 ]
 

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cis8jov72yk0a"]
 
 [ext_resource type="Script" uid="uid://c603c7w2g7so5" path="res://EndGame/endgame.gd" id="1_dr6eo"]
-[ext_resource type="Texture2D" uid="uid://d2bteboeq8g1b" path="res://Scenes/cutscene/farma.png" id="2_dr6eo"]
+[ext_resource type="Texture2D" uid="uid://b1nplhnw24eu4" path="res://Scenes/cutscene/trenercloseup3.png" id="2_12qeh"]
+[ext_resource type="Texture2D" uid="uid://cn303t3aoslgi" path="res://Scenes/cutscene/Krmí krávy olivama.png" id="3_dr6eo"]
+[ext_resource type="Texture2D" uid="uid://j6uvxd5vhogv" path="res://Scenes/cutscene/Krmí krávy olivama-expor2t.png" id="4_12qeh"]
 
 [node name="GameOver" type="Node2D" unique_id=116763686]
 
@@ -14,8 +16,12 @@ script = ExtResource("1_dr6eo")
 
 [node name="Frame1" type="Sprite2D" parent="Control" unique_id=1745082964]
 position = Vector2(955, 537)
-texture = ExtResource("2_dr6eo")
+texture = ExtResource("2_12qeh")
 
 [node name="Frame2" type="Sprite2D" parent="Control" unique_id=1906017035]
-position = Vector2(955, 593)
-texture = ExtResource("2_dr6eo")
+position = Vector2(968, 545)
+texture = ExtResource("3_dr6eo")
+
+[node name="Frame3" type="Sprite2D" parent="Control" unique_id=864051008]
+position = Vector2(964, 543)
+texture = ExtResource("4_12qeh")

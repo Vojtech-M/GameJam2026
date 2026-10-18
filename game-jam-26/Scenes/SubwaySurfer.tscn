@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://emxacoedyyxf"]
 
+[ext_resource type="Script" uid="uid://cx037r4vsii7a" path="res://Scenes/plaer.gd" id="1_e0xrf"]
 [ext_resource type="Script" uid="uid://chuirbstrdpbw" path="res://Scenes/character_body_3d.gd" id="1_ieu8o"]
+[ext_resource type="AudioStream" uid="uid://bmdbxii5fwfw8" path="res://subway.wav" id="2_n28cu"]
 [ext_resource type="Script" uid="uid://2xrk3moqaq8u" path="res://Scenes/area_3d.gd" id="2_ngd4x"]
 [ext_resource type="ArrayMesh" uid="uid://i57kmvhg7nld" path="res://Scenes/Chevrolet_Camaro_SS_Low.obj" id="2_yss6t"]
 [ext_resource type="PackedScene" uid="uid://24m385084g6g" path="res://Scenes/auto2.glb" id="3_5ioam"]
 [ext_resource type="PackedScene" uid="uid://c885l5lqhabpg" path="res://Scenes/auto.glb" id="3_8024r"]
 [ext_resource type="PackedScene" uid="uid://p0jejtykxfjs" path="res://Scenes/kužel.glb" id="4_yss6t"]
 [ext_resource type="PackedScene" uid="uid://luw5tq87y4wv" path="res://Scenes/Tunel.glb" id="5_i5oq1"]
+[ext_resource type="PackedScene" uid="uid://chqsfobjqxlia" path="res://Scenes/Most.glb" id="8_wl4m1"]
+[ext_resource type="Texture2D" uid="uid://bjs3kx4gmm4dh" path="res://Scenes/cutscene/les.png" id="9_6dnd5"]
+[ext_resource type="PackedScene" uid="uid://dmgia44vssfpp" path="res://Scenes/cutscene/Domecek.glb" id="10_4khyn"]
+[ext_resource type="PackedScene" uid="uid://bjkxfqysuf7qt" path="res://Scenes/cutscene/Domecek2.glb" id="11_2thv1"]
+[ext_resource type="AudioStream" uid="uid://can67v4ug36up" path="res://Scenes/cutscene/racing.wav" id="12_2thv1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bkrpe"]
 
@@ -30,7 +37,14 @@ size = Vector3(6.607605, 2.7452393, 5.298352)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_126ht"]
 albedo_color = Color(1, 1, 0.1254902, 1)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6dnd5"]
+
+[sub_resource type="Sky" id="Sky_5ioam"]
+sky_material = SubResource("ProceduralSkyMaterial_6dnd5")
+
 [sub_resource type="Environment" id="Environment_yss6t"]
+background_mode = 2
+sky = SubResource("Sky_5ioam")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_126ht"]
 size = Vector3(259.07538, 322.02612, 50.33287)
@@ -38,7 +52,38 @@ size = Vector3(259.07538, 322.02612, 50.33287)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ngd4x"]
 size = Vector3(8.701138, 322.02612, 6.0548973)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wl4m1"]
+albedo_color = Color(0.40866274, 0.8316686, 0.017670147, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ioam"]
+material = SubResource("StandardMaterial3D_wl4m1")
+size = Vector3(4210.65, 0.001, 3784.4438)
+
+[sub_resource type="Curve3D" id="Curve3D_6dnd5"]
+
+[sub_resource type="Curve3D" id="Curve3D_wo8xd"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.0899277, 197.47476, -688.9635, 0, 0, 0, 0, 0, 0, 123.143555, 0, -541.0445, 0, 0, 0, 0, 0, 0, 237.88596, -20.744202, -738.70544, 0, 0, 0, 0, 0, 0, -94.34015, 379.38272, -1030.7042, 0, 0, 0, 0, 0, 0, -103.94226, 0, -816.60925, 0, 0, 0, 0, 0, 0, -731.88947, 353.04205, -696.23975),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0xrf"]
+albedo_color = Color(0.14055777, 0.1493758, 0.13488105, 1)
+
 [node name="SubwaySurfer" type="Node3D" unique_id=2060305715]
+script = ExtResource("1_e0xrf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=687034744]
+stream = ExtResource("2_n28cu")
+volume_db = 2.902
+autoplay = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1131180605]
+stream = ExtResource("12_2thv1")
+volume_db = 2.977
+autoplay = true
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=211423865 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.582278, 0, 1864.3909)
@@ -87,6 +132,21 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGPolygon3D" unique_id=52957589]
+transform = Transform3D(24.06561, 0, 0, 0, 1, 0, 0, 0, 300.30887, 15.494831, -258.3454, -1.6047767)
+polygon = PackedVector2Array(0, 0, -0.12534738, 0.42564583, 1.1191816, 0.32926154, 1, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
 [node name="Area3D" type="Area3D" parent="." unique_id=122798856]
 collision_layer = 255
 collision_mask = 255
@@ -119,12 +179,12 @@ collision_layer = 65535
 collision_mask = 65535
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Area3D2" unique_id=499703317]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.51655, -2.9390373, 530.52234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.51655, -2.9390373, -982.91907)
 size = Vector3(73.74002, 68.36136, 41.50183)
 material = SubResource("StandardMaterial3D_126ht")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=1243841284]
-transform = Transform3D(1, 0, 0, 0, 0.99955726, 0.029752642, 0, -0.029752642, 0.99955726, -138.31638, -21.094908, 520.66003)
+transform = Transform3D(1, 0, 0, 0, 0.99955726, 0.029752642, 0, -0.029752642, 0.99955726, -138.31638, -21.094908, -975.37445)
 shape = SubResource("BoxShape3D_126ht")
 
 [node name="Area3D3" type="StaticBody3D" parent="." unique_id=78134860]
@@ -133,7 +193,7 @@ collision_layer = 65535
 collision_mask = 65535
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Area3D3" unique_id=1783411181]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.51655, -2.9390373, 530.52234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.51655, -64.89075, 530.52234)
 size = Vector3(73.74002, 68.36136, 41.50183)
 material = SubResource("StandardMaterial3D_126ht")
 
@@ -147,7 +207,7 @@ collision_layer = 65535
 collision_mask = 65535
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Area3D4" unique_id=874307348]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.51655, -2.9390373, 530.52234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.51655, -12.327362, 532.7732)
 size = Vector3(73.74002, 68.36136, 41.50183)
 material = SubResource("StandardMaterial3D_126ht")
 
@@ -161,9 +221,21 @@ collision_layer = 65535
 collision_mask = 65535
 
 [node name="kužel" parent="Area3D5" unique_id=750874069 instance=ExtResource("4_yss6t")]
-transform = Transform3D(3.195, 0, 0, 0, 3.195, 0, 0, 0, 3.195, -54.376877, -8.005968, 541.6069)
+transform = Transform3D(3.195, 0, 0, 0, 3.195, 0, 0, 0, 3.195, -54.376877, -8.005968, 541.4111)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D5" unique_id=1400569849]
+transform = Transform3D(1, 0, 0, 0, 0.99955726, 0.029752642, 0, -0.029752642, 0.99955726, -54.910877, -20.436214, 542.78925)
+shape = SubResource("BoxShape3D_ngd4x")
+
+[node name="Area3D7" type="StaticBody3D" parent="." unique_id=1603125379]
+transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, 55.36567, 0, 913.6509)
+collision_layer = 65535
+collision_mask = 65535
+
+[node name="kužel" parent="Area3D7" unique_id=1326507825 instance=ExtResource("4_yss6t")]
+transform = Transform3D(3.195, 0, 0, 0, 3.195, 0, 0, 0, 3.195, -54.376877, -8.005968, 541.4111)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D7" unique_id=203633680]
 transform = Transform3D(1, 0, 0, 0, 0.99955726, 0.029752642, 0, -0.029752642, 0.99955726, -54.910877, -20.436214, 542.78925)
 shape = SubResource("BoxShape3D_ngd4x")
 
@@ -181,3 +253,65 @@ shape = SubResource("BoxShape3D_ngd4x")
 
 [node name="Tunel" parent="." unique_id=1501398786 instance=ExtResource("5_i5oq1")]
 transform = Transform3D(-6.281326e-07, 0, -14.37, 0, 14.37, 0, 14.37, 0, -6.281326e-07, 3.1060486, -4.8068604, -511.30338)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=836241091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -672.7779, -13.616653, 73.58496)
+mesh = SubResource("BoxMesh_5ioam")
+
+[node name="Path3D2" type="Path3D" parent="." unique_id=930205509]
+curve = SubResource("Curve3D_6dnd5")
+
+[node name="Most" parent="." unique_id=1427456087 instance=ExtResource("8_wl4m1")]
+transform = Transform3D(18.9, 0, 0, 0, 18.9, 0, 0, 0, 18.9, 2.5293837, -7.6094055, 1278.2677)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2079292468]
+transform = Transform3D(4.5092244, 0, -28.470118, 0, 28.825, 0, 28.470118, 0, 4.5092244, 604.4156, 91.31564, 1187.5575)
+texture = ExtResource("9_6dnd5")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=6001318]
+transform = Transform3D(-1.0469838, 0, -29.981726, 0, 30, 0, 29.981726, 0, -1.0469838, -416.36884, 108.94107, 1214.6538)
+texture = ExtResource("9_6dnd5")
+
+[node name="Sprite3D5" type="Sprite3D" parent="." unique_id=1895694853]
+transform = Transform3D(-1.5477949, 0, -19.940023, 0, 20.000002, 0, 19.940023, 0, -1.5477949, -592.1438, 96.980835, 1300.9199)
+texture = ExtResource("9_6dnd5")
+
+[node name="Sprite3D6" type="Sprite3D" parent="." unique_id=1186081330]
+transform = Transform3D(-2.2022753, 0, 19.87838, 0, 38.103004, 0, -19.87838, 0, -2.2022753, -513.3351, 140.11652, 693.4238)
+texture = ExtResource("9_6dnd5")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=345958991]
+transform = Transform3D(3.1358526, 0, -29.835657, 0, 30, 0, 29.835657, 0, 3.1358526, 524.9557, 0, -332.9779)
+texture = ExtResource("9_6dnd5")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=126429773]
+transform = Transform3D(10.7510395, 0, 28.007412, 0, 30, 0, -28.007412, 0, 10.7510395, -332.3661, 0, 0)
+texture = ExtResource("9_6dnd5")
+
+[node name="Path3D3" type="Path3D" parent="." unique_id=1114106133]
+curve = SubResource("Curve3D_wo8xd")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D3" unique_id=465416469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.484894, 106.56851, -277.78522)
+polygon = PackedVector2Array(390.9564, -5.304596, 232.71265, 244.39859, 75.19144, -16.431023, 302.93872, -119.648094)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_e0xrf")
+
+[node name="Domecek" parent="." unique_id=1682445705 instance=ExtResource("10_4khyn")]
+transform = Transform3D(22.155, 0, 0, 0, 22.155, 0, 0, 0, 22.155, 28.340881, -18.144695, 347.97125)
+
+[node name="Domecek2" parent="." unique_id=1879896661 instance=ExtResource("10_4khyn")]
+transform = Transform3D(18.9, 0, 0, 0, 18.9, 0, 0, 0, 18.9, -28.45404, -11.599007, 691.0279)
+
+[node name="Domecek3" parent="." unique_id=798986513 instance=ExtResource("11_2thv1")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -31.325195, 64.240974, 1743.4774)

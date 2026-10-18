@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cwc3bus0c7d80"]
 
-[ext_resource type="Texture2D" uid="uid://bg1feryh4slmt" path="res://Scenes/cutscene/pizzeriaintro.PNG" id="2_jllbf"]
 [ext_resource type="Script" uid="uid://ct3ie6cfi4hrn" path="res://Scenes/cutscene/INTROCONTROLLLER.gd" id="2_m6t1h"]
+[ext_resource type="Texture2D" uid="uid://5ym2fcvjptaw" path="res://Scenes/Restaurace/INTRO1..PNG" id="2_wtd3a"]
+[ext_resource type="Texture2D" uid="uid://bmrdwpva2aclp" path="res://Scenes/Restaurace/INTRO2.PNG" id="3_jqmt0"]
 
 [node name="Cutscene" type="Node2D" unique_id=1777447331]
 
@@ -13,10 +14,16 @@ offset_bottom = 40.0
 script = ExtResource("2_m6t1h")
 
 [node name="Frame1" type="Sprite2D" parent="Control" unique_id=2134508546]
-position = Vector2(945, 559)
-texture = ExtResource("2_jllbf")
+position = Vector2(965, 531)
+scale = Vector2(1.105, 1.105)
+texture = ExtResource("2_wtd3a")
 
 [node name="Frame2" type="Sprite2D" parent="Control" unique_id=1610612021]
-position = Vector2(943, 558)
-scale = Vector2(1.125, 1.125)
-texture = ExtResource("2_jllbf")
+position = Vector2(1188.0004, 462.00024)
+scale = Vector2(1.315, 1.315)
+texture = ExtResource("3_jqmt0")
+
+[node name="Frame3" type="Sprite2D" parent="Control" unique_id=192181672]
+position = Vector2(1249.9998, 391.99997)
+scale = Vector2(1.54, 1.54)
+texture = ExtResource("3_jqmt0")

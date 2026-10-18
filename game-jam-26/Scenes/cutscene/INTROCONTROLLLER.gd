@@ -4,7 +4,8 @@ extends Control
 # nebo použít níže uvedený automatický způsob přes get_children())
 @onready var frames: Array[Node] = [
 	$Frame1,
-	$Frame2
+	$Frame2,
+	$Frame3
 	
 ]
 

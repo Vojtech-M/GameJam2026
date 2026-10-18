@@ -6,7 +6,7 @@ extends Area2D
 const TARGET_PIZZAS: int = 6
 static var delivered_pizzas: int = 0
 
-@export var customer_patience_time: float = 45.0
+@export var customer_patience_time: float = 4500.0
 var current_customer_timer: float = 0.0
 var game_over: bool = false
 
